@@ -10,7 +10,7 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar bg="light" variant="light">
+        <Navbar bg="light" variant="light" style={{ borderBottom: '1px solid lightgray' }}>
           <Container className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
