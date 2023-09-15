@@ -23,12 +23,6 @@ const Countries = () => {
   },
   [dispatch])
 
-  const country = {
-    name: {
-      common: 'Example Country'
-    }
-  }
-
   return (
     <Container fluid>
       <Row>

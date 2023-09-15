@@ -18,6 +18,7 @@ const Layout = () => {
                 <LinkContainer to="/">
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
+                <li style={{ borderRight: '1px solid lightgray' }}></li>
                 <LinkContainer to="/countries">
                   <Nav.Link>Countries</Nav.Link>
                 </LinkContainer>
