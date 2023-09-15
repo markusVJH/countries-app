@@ -3,7 +3,7 @@ import { Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 function CountryCard({ country }) {
-  const { languages, currencies, population } = country;
+  const { languages, currencies, population, flags } = country;
 
   const formattedPopulation = population.toLocaleString();
 
@@ -14,6 +14,12 @@ function CountryCard({ country }) {
           state={{ country: country }}
         >
           <Card className="h-100">
+          <img
+            src={flags && flags.svg}
+            alt={`${country.name.common} Flag`}
+            className="position-absolute top-0 end-0 mt-2 me-2"
+            style={{ width: '50px', height: 'auto', border: '1px solid lightgray' }}
+          />
             <Card.Body className="d-flex flex-column">
               <Card.Title>{country.name.common}</Card.Title>
               <Card.Subtitle className="mb-5 text-muted">
