@@ -10,10 +10,10 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar bg="light" variant="light" style={{ borderBottom: '1px solid lightgray' }}>
-          <Container className="justify-content-end">
+        <Navbar bg="light" variant="light" style={{ borderBottom: '1px solid lightgray' } }>
+          <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Collapse id="basic-navbar-nav"  className="justify-content-center">
               <Nav>
                 <LinkContainer to="/">
                   <Nav.Link>Home</Nav.Link>
