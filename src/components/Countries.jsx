@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CountryCard from './CountryCard';
+import { initializeCountries } from '../features/countries/countriesSlice';
 
 const Countries = () => {
-  const countriesList = useSelector((state) => state.countries.countriesList);
+  const dispatch = useDispatch();
+  const countriesList = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
+
+  console.log("CountriesList = ", countriesList);
 
   const [search, setSearch] = useState('')
 
   console.log("Search: ", search)
+
+  useEffect(() => {
+    dispatch(initializeCountries())
+  },
+  [dispatch])
 
   const country = {
     name: {
@@ -36,7 +45,11 @@ const Countries = () => {
           </Form>
         </Col>
       </Row>
-      <CountryCard country={country} />
+      {countriesList.map((country) => {
+        return (
+        <CountryCard country={country} key={country.name.common}/>
+      )
+      })}
     </Container>
   );
 };

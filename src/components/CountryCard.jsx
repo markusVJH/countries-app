@@ -12,7 +12,7 @@ function CountryCard({ country }) {
         >
           <Card className="h-100">
             <Card.Body className="d-flex flex-column">
-              <Card.Title>{'Single Country Common Name'}</Card.Title>
+              <Card.Title>{country.name.common}</Card.Title>
               <Card.Subtitle className="mb-5 text-muted">
                 {'Single Country Official Name'}
               </Card.Subtitle>
