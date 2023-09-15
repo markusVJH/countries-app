@@ -12,16 +12,14 @@ const Countries = () => {
   const countriesList = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
 
-  console.log("CountriesList = ", countriesList);
 
   const [search, setSearch] = useState('')
-
-  console.log("Search: ", search)
 
   useEffect(() => {
     dispatch(initializeCountries())
   },
   [dispatch])
+
 
   return (
     <Container fluid>
@@ -29,7 +27,7 @@ const Countries = () => {
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
             <Form.Control
-              style={{ width: '18rem' }}
+              style={{ width: '20rem' }}
               type="search"
               className="me-2 "
               placeholder="Search for countries"
@@ -40,11 +38,14 @@ const Countries = () => {
         </Col>
       </Row>
     <Row xs={2} md={3} lg={4} className=" g-3">
-      {countriesList.map((country) => {
-        return (
-        <CountryCard country={country} key={country.name.common}/>
-      )
-      })}
+      {countriesList.reduce((acc, country) => {
+            if (country.name.common.toLowerCase().includes(search.toLowerCase())) {
+              acc.push(
+                <CountryCard country={country} key={country.name.common} />
+              );
+            }
+            return acc;
+          }, [])}
     </Row>
     </Container>
   );
