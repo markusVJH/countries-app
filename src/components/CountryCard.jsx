@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, ListGroup, Row } from 'react-bootstrap';
+import { Card, Col, ListGroup} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 function CountryCard({ country }) {
@@ -17,8 +17,8 @@ function CountryCard({ country }) {
           <img
             src={flags && flags.svg}
             alt={`${country.name.common} Flag`}
-            className="position-absolute top-0 end-0 mt-2 me-2"
-            style={{ width: '50px', height: 'auto', border: '1px solid lightgray' }}
+            className="position-absolute end-0 mt-1 me-1"
+            style={{ width: '4rem', height: 'auto', border: '1px solid lightgray'}}
           />
             <Card.Body className="d-flex flex-column">
               <Card.Title>{country.name.common}</Card.Title>
