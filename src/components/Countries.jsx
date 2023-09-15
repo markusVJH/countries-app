@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-
-
-import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import { useSelector } from 'react-redux';
-import { LinkContainer } from 'react-router-bootstrap';
+import CountryCard from './CountryCard';
 
 const Countries = () => {
   const countriesList = useSelector((state) => state.countries.countriesList);
@@ -40,6 +36,7 @@ const Countries = () => {
           </Form>
         </Col>
       </Row>
+      <CountryCard country={country} />
     </Container>
   );
 };
