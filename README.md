@@ -1,4 +1,4 @@
-# Recipes
+# Countries App
 
 This is a final project for a React Advanced course at Business College Helsinki. It is a Countries App built with Reactjs, where the user can view information about countries
 
