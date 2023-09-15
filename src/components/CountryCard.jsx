@@ -4,7 +4,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 function CountryCard({ country }) {
   return (
-    <Row xs={2} md={3} lg={4} className=" g-3">
       <Col className="mt-5">
         <LinkContainer
           to={`/countries/${country.name.common}`}
@@ -35,7 +34,6 @@ function CountryCard({ country }) {
           </Card>
         </LinkContainer>
       </Col>
-  </Row>
   );
 }
 

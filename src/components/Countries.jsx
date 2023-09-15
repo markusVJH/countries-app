@@ -45,11 +45,13 @@ const Countries = () => {
           </Form>
         </Col>
       </Row>
+      <Row xs={2} md={3} lg={4} className=" g-3">
       {countriesList.map((country) => {
         return (
         <CountryCard country={country} key={country.name.common}/>
       )
       })}
+      </Row>
     </Container>
   );
 };
