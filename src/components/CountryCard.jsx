@@ -23,12 +23,16 @@ function CountryCard({ country }) {
             <Card.Body className="d-flex flex-column">
               <Card.Title>{country.name.common}</Card.Title>
               <Card.Subtitle className="mb-5 text-muted">
-                {'Single Country Official Name'}
+                {country.name.official}
               </Card.Subtitle>
               <ListGroup
                 variant="flush"
                 className="flex-grow-1 justify-content-end"
               >
+                <ListGroup.Item>
+                  <i className="bi bi-star-fill"></i>
+                  {' ' + country.capital}
+                </ListGroup.Item>
                 <ListGroup.Item>
                   <i className="bi bi-translate me-2"></i>
                   {languages && Object.values(languages).join(', ')}

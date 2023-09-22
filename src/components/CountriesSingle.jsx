@@ -27,6 +27,8 @@ const CountriesSingle = () => {
 
   console.log('weather xd ->', weather)
 
+  
+
   return (
     <Container>
       <div>Single Country will be here</div>
