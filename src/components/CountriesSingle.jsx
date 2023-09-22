@@ -51,8 +51,15 @@ if (loading) {
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.capital + ' nature'}`} />
         </Col>
         <Col>
-          <h2 className='display-4'>{country.name.common}</h2>
-          <h3>{country.capital}</h3>
+        <div className="d-flex align-items-center mb-3">
+            <Image
+              src={country.flags && country.flags.svg}
+              alt={`${country.name.common} Flag`}
+              style={{ width: '5rem', marginRight: '1rem' }}
+            />
+            <h2 className='display-4'>{country.name.common}</h2>
+          </div>
+          <h3>{country.capital && Object.values(country.capital).join(', ')}</h3>
           {error ? (
             <p>Weather data not found for this country. Hopefully its nice!</p>
           ) : (
