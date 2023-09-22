@@ -57,13 +57,13 @@ if (loading) {
           <p>
             It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description}
           </p>
-          <img src={`http://openweatherapp.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`}/>
+          <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
           </div>
         )}
         </Col>
       </Row>
       <Col>
-      <Button></Button>
+      <Button variant="dark" onClick={() => navigate('/countries')}>Back</Button>
       </Col>
     </Container>
   );
