@@ -30,20 +30,20 @@ function CountryCard({ country }) {
                 className="flex-grow-1 justify-content-end"
               >
                 <ListGroup.Item>
-                  <i className="bi bi-star-fill"></i>
-                  {' ' + country.capital}
+                  <i className="bi bi-people me-2"></i>
+                  {formattedPopulation}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <i className="bi bi-translate me-2"></i>
                   {languages && Object.values(languages).join(', ')}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <i className="bi bi-cash-coin me-2"></i>
-                  {currencies && Object.values(currencies)[0].name}
+                  <i className="bi bi-star-fill"></i>
+                  {' ' + country.capital}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <i className="bi bi-people me-2"></i>
-                  {formattedPopulation}
+                  <i className="bi bi-cash-coin me-2"></i>
+                  {currencies && Object.values(currencies)[0].name}
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>
