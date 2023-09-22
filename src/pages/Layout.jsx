@@ -33,7 +33,7 @@ const Layout = () => {
                   <Nav.Link>Register</Nav.Link>
                 </LinkContainer>
             </Nav>
-              <Button onClick={() => logout}>Logout</Button>
+              <Button onClick={logout}>Logout</Button>
           </Container>
         </Navbar>
       </Row>

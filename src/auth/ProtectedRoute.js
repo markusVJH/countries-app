@@ -6,3 +6,5 @@ const ProtectedRoute = ({user, children}) => {
   }
   return <Outlet />
 }
+
+export default ProtectedRoute;
