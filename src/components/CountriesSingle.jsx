@@ -14,16 +14,17 @@ const CountriesSingle = () => {
   const country = location.state.country;
 
   useEffect(()=>{
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
-    .catch((err) => {
-      setError(true);
-    })
-    .then((res) => {
-      setWeather(res.data);
-      setLoading(false);
-    })
-
-  }, [country.capital])
+    axios
+      .get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
+      .then((res) => {
+        setWeather(res.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, [country.capital]);
 
   console.log('weather xd ->', weather)
 
@@ -47,23 +48,27 @@ if (loading) {
     <Container>
       <Row className="mt-5">
         <Col>
-        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.capital}`} />
+        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.capital + ' nature'}`} />
         </Col>
         <Col>
-        <h2 className='display-4'>{country.name.common}</h2>
-        <h3>{country.capital}</h3>
-        {!error && weather && (
-          <div>
-          <p>
-            It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description}
-          </p>
-          <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-          </div>
-        )}
+          <h2 className='display-4'>{country.name.common}</h2>
+          <h3>{country.capital}</h3>
+          {error ? (
+            <p>Weather data not found for this country. Hopefully its nice!</p>
+          ) : (
+            weather && (
+              <div>
+                <p>
+                  It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description} :)
+                  <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                </p>
+              </div>
+            )
+          )}
         </Col>
       </Row>
       <Col>
-      <Button variant="dark" onClick={() => navigate('/countries')}>Back</Button>
+      <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
       </Col>
     </Container>
   );
