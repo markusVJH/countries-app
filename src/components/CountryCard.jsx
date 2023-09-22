@@ -38,8 +38,8 @@ function CountryCard({ country }) {
                   {languages && Object.values(languages).join(', ')}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <i className="bi bi-star-fill"></i>
-                  {' ' + country.capital}
+                  <i className="bi bi-star-fill me-2"></i>
+                  {country.capital && Object.values(country.capital).join(', ')}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <i className="bi bi-cash-coin me-2"></i>
