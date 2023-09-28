@@ -26,7 +26,7 @@ function CountryCard({ country }) {
             src={flags && flags.svg}
             alt={`${country.name.common} Flag`}
             
-            style={{ width: '5rem', border: '1px solid lightgray'}}
+            style={{ width: '6rem', border: '1px solid lightgray'}}
           />
             </div>
               <ListGroup

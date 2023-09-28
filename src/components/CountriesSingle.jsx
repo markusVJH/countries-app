@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Spinner, Image, Button } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../App.css'
 
 const CountriesSingle = () => {
   const location = useLocation();
@@ -46,19 +47,22 @@ if (loading) {
 
   return (
     <Container>
+      <div className='title'>
+      <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
+        <div className="d-flex align-items-center mb-3">
+            <Image
+              src={country.flags && country.flags.svg}
+              alt={`${country.name.common} Flag`}
+              style={{ width: '7rem', marginRight: '1rem' }}
+            />
+        <h1 className='display-4'>{country.name.common}</h1>
+        </div>
+      </div>
       <Row className="mt-5">
         <Col>
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.capital + ' nature'}`} />
         </Col>
         <Col>
-        <div className="d-flex align-items-center mb-3">
-            <Image
-              src={country.flags && country.flags.svg}
-              alt={`${country.name.common} Flag`}
-              style={{ width: '5rem', marginRight: '1rem' }}
-            />
-            <h2 className='display-4'>{country.name.common}</h2>
-          </div>
           <h3>{country.capital && Object.values(country.capital).join(', ')}</h3>
           {error ? (
             <p>Weather data not found for this country. Hopefully its nice!</p>
@@ -74,9 +78,6 @@ if (loading) {
           )}
         </Col>
       </Row>
-      <Col>
-      <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
-      </Col>
     </Container>
   );
 };
