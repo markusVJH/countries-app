@@ -15,7 +15,7 @@ function CountryCard({ country }) {
         >
           <Card className="h-100">
             <Card.Body className="d-flex flex-column">
-            <div class="text-center">
+            <div className="text-center">
               <Card.Title >{country.name.common}</Card.Title>
               <div className='scroll'>
               <Card.Subtitle className="mb-1 text-muted p-2" style={{ borderBottom: '1px solid lightgray'}}>
