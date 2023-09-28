@@ -46,7 +46,7 @@ if (loading) {
 
 
   return (
-    <Container>
+    <Container className='single-container'>
       <div className='title'>
       <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
         <div className="d-flex align-items-center mb-3">
@@ -60,31 +60,32 @@ if (loading) {
       </div>
       <Row className="mt-5">
         <Col>
-        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.common + ' nature'}`} />
-        <iframe
-          title="Google Maps"
-          src={`https://www.google.com/maps/embed/v1/place?key=process.env.REACT_APP_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(country.name.common)}`}
-          width="100%"
-          height="400"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
+          <iframe
+            title="Google Maps"
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(country.name.common)}`}
+            width="100%"
+            height="100%"
+            allowFullScreen
+            ></iframe>
         </Col>
         <Col>
-          <h3>{country.capital && Object.values(country.capital).join(', ')}</h3>
-          {error ? (
-            <p>Weather data not found for this country. Hopefully its nice!</p>
-          ) : (
-            weather && (
-              <div>
-                <p>
-                  It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description} :)
-                  <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                </p>
-              </div>
-            )
-          )}
+            <h3>{country.capital && Object.values(country.capital).join(', ')}</h3>
+                {error ? (
+                  <p>Weather data not found for this country. Hopefully its nice!</p>
+                  ) : (
+                    weather && (
+                      <div>
+                      <p>
+                        It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description} :)
+                        <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                      </p>
+                    </div>
+                  )
+                )}
         </Col>
+{/*         <Col>
+        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
+        </Col> */}
       </Row>
     </Container>
   );
