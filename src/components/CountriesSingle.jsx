@@ -46,7 +46,7 @@ if (loading) {
 
 
   return (
-    <Container className='single-container'>
+    <Container className='full-height'>
       <div className='title'>
       <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
         <div className="d-flex align-items-center mb-3">

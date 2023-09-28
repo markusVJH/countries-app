@@ -2,6 +2,10 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  background-color: white;
+}
+body {
+  background-color: lightgray;
 }
 .App {
   text-align: center;
@@ -43,6 +47,9 @@
 }
 
 /* single card */
+.full-height {
+  height: calc(100vh - 4rem);
+}
 .title {
   display: flex;
   justify-content: center;
