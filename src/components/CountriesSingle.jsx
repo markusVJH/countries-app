@@ -83,9 +83,9 @@ if (loading) {
                   )
                 )}
         </Col>
-{/*         <Col>
+        <Col>
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
-        </Col> */}
+        </Col>
       </Row>
     </Container>
   );

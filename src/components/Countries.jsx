@@ -37,7 +37,7 @@ const Countries = () => {
           </Form>
         </Col>
       </Row>
-    <Row xs={2} md={3} lg={4} className=" g-3">
+    <Row xs={2} md={3} lg={3} className=" g-4">
       {countriesList.reduce((acc, country) => {
             if (country.name.common.toLowerCase().includes(search.toLowerCase())) {
               acc.push(
