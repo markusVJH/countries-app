@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import CountryCard from './CountryCard';
 import { initializeCountries } from '../features/countries/countriesSlice';
+import BackToTopButton from './BackToTopButton';
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Countries = () => {
           </Form>
         </Col>
       </Row>
+      <BackToTopButton />
     <Row xs={2} md={3} lg={3} className=" g-4">
       {countriesList.reduce((acc, country) => {
             if (country.name.common.toLowerCase().includes(search.toLowerCase())) {
