@@ -1,8 +1,12 @@
 import React from 'react';
 import { Card, Col, ListGroup} from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
+import { addFavourite, removeFavourite } from '../features/countries/favouritesSlice';
 
 function CountryCard({ country }) {
+  const favouritesList = useSelector((state) => state.favourites.favourites);
+  const dispatchEvent = useDispatch();
   const { languages, currencies, population, flags, area } = country;
 
   const formattedPopulation = population.toLocaleString();
@@ -15,6 +19,15 @@ function CountryCard({ country }) {
           state={{ country: country }}
         >
           <Card className="h-100">
+            {favouritesList.includes(country.name.common) ? (
+              <i
+              className='bi bi-heart-fill text-danger m-1 p-1'
+              onClick={() => dispatchEvent(removeFavourite(country.name.common))} />
+            ) : (
+              <i
+              className='bi bi-heart text-danger m-1 p-1'
+              onClick={() => dispatchEvent(addFavourite(country.name.common))} />
+            )}
             <Card.Body className="d-flex flex-column">
             <div className="text-center">
               <Card.Title >{country.name.common}</Card.Title>
