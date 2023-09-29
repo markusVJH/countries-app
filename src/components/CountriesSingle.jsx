@@ -14,6 +14,8 @@ const CountriesSingle = () => {
   const [showFlagModal, setShowFlagModal] = useState(false);
 
   const country = location.state.country;
+  const formattedPopulation = country.population.toLocaleString();
+  const formattedArea = country.area.toLocaleString();
 
   useEffect(()=>{
     axios
@@ -58,7 +60,7 @@ if (loading) {
             <Image
               src={country.flags && country.flags.svg}
               alt={`${country.name.common} Flag`}
-              style={{ width: '7rem', marginRight: '1rem', cursor: 'pointer' }}
+              style={{ width: '7rem', marginRight: '1rem', cursor: 'pointer', border: '1px solid lightgray' }}
               onClick={toggleFlagModal}
             />
         <h1 className='display-4'>{country.name.common}</h1>
@@ -75,25 +77,28 @@ if (loading) {
             ></iframe>
         </Col>
         <Col>
-            <h3>{country.capital && Object.values(country.capital).join(', ')}</h3>
+            <p>Capital city: <strong>{country.capital && Object.values(country.capital).join(', ')}</strong></p>
                 {error ? (
-                  <p>Weather data not found for this country. Hopefully its nice!</p>
+                  <p style={{marginLeft: '1rem'}}>Weather data not found for this country. Hopefully its nice!</p>
                   ) : (
                     weather && (
-                      <div>
-                      <p>
-                        It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description} :)
-                        <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                      </p>
-                      <p>
-                      Official languages: {country.languages && Object.values(country.languages).join(', ')}
-                      </p>
-                      <p>
-                      Population: {country.population}
-                      </p>
+                    <div>
+                      <p><small style={{marginLeft: '1rem', paddingBottom:'2rem'}}>
+                        It is <strong>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and {weather.weather[0].description} :)
+{/*                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} style={{ position: 'absolute', right: '2rem'}} /> */}
+                      </small></p>  
                     </div>
                   )
                 )}
+            <p>
+              Official languages: {country.languages && Object.values(country.languages).join(', ')}
+            </p>
+            <p>
+              Population: {formattedPopulation}
+            </p>
+            <p>
+              Area: {formattedArea} km²
+            </p>
         </Col>
 {/*         <Col>
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
