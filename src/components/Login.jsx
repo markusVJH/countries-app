@@ -17,7 +17,7 @@ const Login = () => {
   },[user, loading])
 
   return(
-    <div>
+    <div className='full-height'>
       <input
       type= "email"
       value={email}

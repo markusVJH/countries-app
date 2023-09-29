@@ -23,7 +23,7 @@ const Register = () => {
   },[user, loading])
 
   return (
-    <div>
+    <div className='full-height'>
       <input
       type= "text"
       value={name}

@@ -85,13 +85,19 @@ if (loading) {
                         It is <strong>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and {weather.weather[0].description} :)
                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
                       </p>
+                      <p>
+                      Official languages: {country.languages && Object.values(country.languages).join(', ')}
+                      </p>
+                      <p>
+                      Population: {country.population}
+                      </p>
                     </div>
                   )
                 )}
         </Col>
-        <Col>
+{/*         <Col>
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
-        </Col>
+        </Col> */}
       </Row>
       <Modal show={showFlagModal} onHide={toggleFlagModal}>
         <Modal.Header closeButton>
