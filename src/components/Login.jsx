@@ -30,7 +30,7 @@ const Login = () => {
       onChange={(e) => setPassword(e.target.value)}
       placeholder="Password"
       />
-      <Button variant='dark'onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
+      <Button variant='dark' onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
       <div>
         Don't have an account?
         <Link to="/register">Register</Link>

@@ -52,7 +52,7 @@ function CountryCard({ country }) {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <i className="bi bi-cash-coin me-2"></i>
-                  {currencies && Object.values(currencies)[0].name}
+                  {currencies && Object.values(currencies)[0].name} | {currencies && Object.values(currencies)[0].symbol}
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>

@@ -91,13 +91,13 @@ if (loading) {
                   )
                 )}
             <p>
-              Official languages: {country.languages && Object.values(country.languages).join(', ')}
+              Official languages: <strong>{country.languages && Object.values(country.languages).join(', ')}</strong>
             </p>
             <p>
-              Population: {formattedPopulation}
+              Population: <strong>{formattedPopulation}</strong>
             </p>
             <p>
-              Area: {formattedArea} km²
+              Total land area: <strong>{formattedArea} km²</strong>
             </p>
         </Col>
 {/*         <Col>

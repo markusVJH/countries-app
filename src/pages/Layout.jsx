@@ -37,7 +37,7 @@ const Layout = () => {
             </Nav>
               {user ? (
                 <Button variant="dark" onClick={logout}>Logout</Button>
-              ) : (<LinkContainer to ="/login"><Button>Login</Button></LinkContainer>)}
+              ) : (<LinkContainer to ="/login"><Button variant="dark">Login</Button></LinkContainer>)}
           </Container>
         </Navbar>
       </Row>
