@@ -70,8 +70,12 @@ body {
   right: 10%;
   bottom: 2rem;
   height: fit-content;
-  font-size: 1.5rem;
   z-index: 1;
   cursor: pointer;
   color: white;
+}
+/* country card */
+
+.country-card {
+  cursor: pointer;
 }

@@ -3,9 +3,10 @@ import { Card, Col, ListGroup} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 function CountryCard({ country }) {
-  const { languages, currencies, population, flags } = country;
+  const { languages, currencies, population, flags, area } = country;
 
   const formattedPopulation = population.toLocaleString();
+  const formattedArea = area.toLocaleString();
 
   return (
       <Col className="mt-5 country-card">
@@ -36,6 +37,10 @@ function CountryCard({ country }) {
                 <ListGroup.Item>
                   <i className="bi bi-people me-2"></i>
                   {formattedPopulation}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <i className="bi bi-map me-2"></i>
+                  {formattedArea} km²
                 </ListGroup.Item>
                 <ListGroup.Item className='scroll'>
                   <i className="bi bi-translate me-2"></i>

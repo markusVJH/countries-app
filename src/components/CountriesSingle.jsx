@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Spinner, Image, Button } from 'react-bootstrap';
+import { Col, Container, Row, Spinner, Image, Button, Modal } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css'
@@ -11,6 +11,7 @@ const CountriesSingle = () => {
   const [weather, setWeather] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showFlagModal, setShowFlagModal] = useState(false);
 
   const country = location.state.country;
 
@@ -28,6 +29,10 @@ const CountriesSingle = () => {
   }, [country.capital]);
 
   console.log('weather xd ->', weather)
+
+  const toggleFlagModal = () => {
+    setShowFlagModal(!showFlagModal);
+  };
 
 if (loading) {
   return (
@@ -53,7 +58,8 @@ if (loading) {
             <Image
               src={country.flags && country.flags.svg}
               alt={`${country.name.common} Flag`}
-              style={{ width: '7rem', marginRight: '1rem' }}
+              style={{ width: '7rem', marginRight: '1rem', cursor: 'pointer' }}
+              onClick={toggleFlagModal}
             />
         <h1 className='display-4'>{country.name.common}</h1>
         </div>
@@ -87,6 +93,18 @@ if (loading) {
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
         </Col>
       </Row>
+      <Modal show={showFlagModal} onHide={toggleFlagModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>The flag of {country.name.common}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image
+            src={country.flags && country.flags.svg}
+            alt={`${country.name.common} Flag`}
+            style={{ width: '100%' }}
+          />
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 };
