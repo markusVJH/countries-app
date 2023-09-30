@@ -8,7 +8,7 @@ import '../App.css'
 function CountryCard({ country }) {
   const favouritesList = useSelector((state) => state.favourites.favourites);
   const dispatchEvent = useDispatch();
-  const { languages, currencies, population, flags, area } = country;
+  const { languages, population, flags, area } = country;
 
   const formattedPopulation = population.toLocaleString();
   const formattedArea = area.toLocaleString();
@@ -29,7 +29,7 @@ function CountryCard({ country }) {
           to={`/countries/${country.name.common}`}
           state={{ country: country }}
         >
-          <Card className="h-100">
+          <Card className="h-100 hover-shadow">
             {favouritesList.includes(country.name.common) ? (
               <i
               className='bi bi-star-fill text-warning m-1 p-1 star'
