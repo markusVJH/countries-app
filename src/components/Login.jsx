@@ -24,8 +24,8 @@ const Login = () => {
           <div className="card-body">
             <div>
               <form>
-                <div>
-                  <h3>Countries App - Login</h3>
+                <div style={{textAlign:'center'}}>
+                  <h4>Countries App - Login</h4>
                   <div className="form-group mt-3">
                   <input
                   className="form-control mt-1"

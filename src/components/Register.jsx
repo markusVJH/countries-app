@@ -30,8 +30,8 @@ const Register = () => {
           <div className="card-body">
             <div>
               <form>
-                <div>
-                  <h3>Countries App - Register</h3>
+                <div style={{textAlign:'center'}}>
+                  <h4>Countries App - Register</h4>
                   <div className="form-group mt-3">
                   <input
                   className="form-control mt-1"
@@ -74,31 +74,6 @@ const Register = () => {
       </div>
     </div>
   </div>
-/*     <div className='full-height'>
-      <input
-      type= "text"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      placeholder="Full name"
-      />
-      <input
-      type= "email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      placeholder="Email"
-      />
-      <input
-      type= "password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      placeholder="Password"
-      />
-      <Button onClick={register}>Register</Button>
-      <div>
-        Already have an account?
-        <Link to="/login">Login</Link>
-      </div>
-    </div> */
   )
 
 };
