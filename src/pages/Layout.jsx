@@ -10,16 +10,16 @@ import { auth, logout } from '../auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Layout = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
 
   return (
     <Container fluid>
       <Row>
-        <Navbar variant="light" style={{ height: '4rem', borderBottom: '1px solid lightgray' } }>
+        <Navbar variant="light" className='fixed-top' style={{ borderBottom: '1px solid lightgray', background:'white'} }>
           <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Collapse id="basic-navbar-nav" style={{ background: 'white' }}>
             <Nav>
                 <LinkContainer to="/">
                   <Nav.Link>Home</Nav.Link>
@@ -52,9 +52,11 @@ const Layout = () => {
           </Container>
         </Navbar>
       </Row>
+      <div style={{ paddingTop: '4rem' }}>
       <Row>
         <Outlet />
       </Row>
+      </div>
     </Container>
   );
 };

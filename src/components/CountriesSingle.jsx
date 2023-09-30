@@ -41,7 +41,7 @@ if (loading) {
         animation="grow"
         role="status"
         className="center"
-        variant="info"
+        variant="warning"
         >
         <span className='visually-hidden'>Loading...</span>
       </Spinner>
@@ -83,7 +83,7 @@ if (loading) {
                     <div>
                       <p><small style={{marginLeft: '1rem', paddingBottom:'2rem'}}>
                         It is <strong>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and {weather.weather[0].description}
-{/*                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} style={{ position: 'absolute', right: '2rem'}} /> */}
+{/*                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} style={{position: 'absolute'}} /> */}
                       </small></p>  
                     </div>
                   )
@@ -102,7 +102,7 @@ if (loading) {
             </p>
         </Col>
         <Col>
-        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
+        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.capital}`} />
         </Col>
       </Row>
       <Modal show={showFlagModal} onHide={toggleFlagModal}>
