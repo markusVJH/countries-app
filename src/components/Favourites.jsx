@@ -16,7 +16,7 @@ const Favourites = () => {
 
     const emptyFavoritesMessage = favouritesList.length === 0 ? (
       <p>You have no favorites yet! Add some by clicking the  <i
-      className='bi bi-heart text-danger m-1 p-1'/> icon on a country :)</p>
+      className='bi bi-star text-warning m-1 p-1'/> icon on a country :)</p>
     ) : null;
   
 

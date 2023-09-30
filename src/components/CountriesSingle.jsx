@@ -84,7 +84,7 @@ if (loading) {
                     weather && (
                     <div>
                       <p><small style={{marginLeft: '1rem', paddingBottom:'2rem'}}>
-                        It is <strong>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and {weather.weather[0].description} :)
+                        It is <strong>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and {weather.weather[0].description}
 {/*                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} style={{ position: 'absolute', right: '2rem'}} /> */}
                       </small></p>  
                     </div>
@@ -98,6 +98,9 @@ if (loading) {
             </p>
             <p>
               Total land area: <strong>{formattedArea} km²</strong>
+            </p>
+            <p>
+              Currencies: <strong>{country.currencies && Object.values(country.currencies)[0].name} | {country.currencies && Object.values(country.currencies)[0].symbol}</strong>
             </p>
         </Col>
 {/*         <Col>

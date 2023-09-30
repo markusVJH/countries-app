@@ -3,6 +3,7 @@ import { Card, Col, ListGroup} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { addFavourite, removeFavourite } from '../features/countries/favouritesSlice';
+import '../App.css'
 
 function CountryCard({ country }) {
   const favouritesList = useSelector((state) => state.favourites.favourites);
@@ -29,17 +30,15 @@ function CountryCard({ country }) {
           state={{ country: country }}
         >
           <Card className="h-100">
-            <div className='heart-icon'>
             {favouritesList.includes(country.name.common) ? (
               <i
-              className='bi bi-heart-fill text-danger m-1 p-1'
+              className='bi bi-star-fill text-warning m-1 p-1 star'
               onClick={handleHeartClick} />
             ) : (
               <i
-              className='bi bi-heart text-danger m-1 p-1'
+              className='bi bi-star text-warning m-1 p-1 star'
               onClick={handleHeartClick} />
             )}
-            </div>
             <Card.Body className="d-flex flex-column">
             <div className="text-center">
               <Card.Title >{country.name.common}</Card.Title>
@@ -59,25 +58,21 @@ function CountryCard({ country }) {
                 variant="flush"
                 className="flex-grow-1 justify-content-end"
               >
-                <ListGroup.Item>
+                <ListGroup.Item title="Population">
                   <i className="bi bi-people me-2"></i>
                   {formattedPopulation}
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item title="Land area">
                   <i className="bi bi-map me-2"></i>
                   {formattedArea} km²
                 </ListGroup.Item>
-                <ListGroup.Item className='scroll'>
-                  <i className="bi bi-translate me-2"></i>
-                  {languages && Object.values(languages).join(', ')}
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <i className="bi bi-star-fill me-2"></i>
+                <ListGroup.Item title="Capital city">
+                  <i className="bi bi-flag-fill me-2"></i>
                   {country.capital && Object.values(country.capital).join(', ')}
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <i className="bi bi-cash-coin me-2"></i>
-                  {currencies && Object.values(currencies)[0].name} | {currencies && Object.values(currencies)[0].symbol}
+                <ListGroup.Item className='scroll' title="Official languages">
+                  <i className="bi bi-translate me-2"></i>
+                  {languages && Object.values(languages).join(', ')}
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>
