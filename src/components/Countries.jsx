@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CountryCard from './CountryCard';
 import { initializeCountries } from '../features/countries/countriesSlice';
 import BackToTopButton from './BackToTopButton';
+import filterAndSortCountries from '../features/countryFilter';
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -15,15 +16,22 @@ const Countries = () => {
 
 
   const [search, setSearch] = useState('')
+  const [sortBy, setSortBy] = useState('alphabetical');
 
   useEffect(() => {
     dispatch(initializeCountries())
   },
   [dispatch])
 
+  const filteredAndSortedCountries = filterAndSortCountries(
+    countriesList,
+    search,
+    sortBy
+  );
+
 
   return (
-    <Container fluid>
+    <Container fluid className='full-height'>
       <Row>
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
@@ -36,19 +44,25 @@ const Countries = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </Form>
+          <Form>
+            <Form.Select
+              style={{ width: '10rem' }}
+              aria-label="Sort By"
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="alphabetical">Alphabetical</option>
+              <option value="population">Population</option>
+              <option value="area">Area</option>
+            </Form.Select>
+          </Form>
         </Col>
       </Row>
       <BackToTopButton />
-    <Row xs={2} md={3} lg={3} className=" g-4">
-      {countriesList.reduce((acc, country) => {
-            if (country.name.common.toLowerCase().includes(search.toLowerCase())) {
-              acc.push(
-                <CountryCard country={country} key={country.name.common} />
-              );
-            }
-            return acc;
-          }, [])}
-    </Row>
+      <Row xs={2} md={3} lg={3} className=" g-4">
+        {filteredAndSortedCountries.map((country) => (
+          <CountryCard country={country} key={country.name.common} />
+        ))}
+      </Row>
     </Container>
   );
 };

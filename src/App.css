@@ -48,7 +48,7 @@ body {
 
 /* single card */
 .full-height {
-  height: calc(100vh - 4rem);
+  min-height: calc(100vh - 4rem);
 }
 .title {
   display: flex;

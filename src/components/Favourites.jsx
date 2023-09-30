@@ -5,6 +5,7 @@ import { initializeCountries } from "../features/countries/countriesSlice";
 import { clearFavourites } from "../features/countries/favouritesSlice";
 import CountryCard from "./CountryCard";
 
+
 const Favourites = () => {
     const dispatch = useDispatch()
     let countriesList = useSelector((state) => state.countries.countries)
@@ -34,7 +35,7 @@ const Favourites = () => {
       </Col>
         )
     }
-    return (<Container fluid>
+    return (<Container fluid className="full-height">
         <Row>
           <Col className="mt-5 d-flex justify-content-center">
             <Form>
