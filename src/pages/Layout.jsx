@@ -11,6 +11,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Layout = () => {
   const [user, loading] = useAuthState(auth);
+
+
   return (
     <Container fluid>
       <Row>
@@ -31,16 +33,22 @@ const Layout = () => {
             </Nav>
             </Navbar.Collapse>
             <Nav className="ml-auto">
-                <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
-                </LinkContainer>
-            </Nav>
               {user ? (
-                <Button variant="dark" onClick={logout}>Logout</Button>
-              ) : (<LinkContainer to ="/login"><Button variant="dark">Login</Button></LinkContainer>)}
+                <>
+                  <Navbar.Text style={{marginRight:'1rem'}}>{user.email}</Navbar.Text>
+                  <Button variant="dark" onClick={logout}>Logout</Button>
+                </>
+              ) : (
+                <>
+                  <LinkContainer to="/login">
+                    <Nav.Link>Login</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to="/register">
+                    <Nav.Link>Register</Nav.Link>
+                  </LinkContainer>
+                </>
+              )}
+            </Nav>
           </Container>
         </Navbar>
       </Row>

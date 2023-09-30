@@ -15,7 +15,7 @@ const Favourites = () => {
     const favouritesList = useSelector((state) => state.favourites.favourites)  
 
     const emptyFavoritesMessage = favouritesList.length === 0 ? (
-      <p>You have no favorites yet! Add some by clicking the  <i
+      <p style={{marginTop: '2rem'}}>You have no favorites yet! Add some by clicking the  <i
       className='bi bi-star text-warning m-1 p-1'/> icon on a country :)</p>
     ) : null;
   
@@ -51,7 +51,7 @@ const Favourites = () => {
           <Col className="mt-5 d-flex justify-content-center">
             <Form>
               <Form.Control
-                style={{ width: '18rem' }}
+                style={{ width: '20rem' }}
                 type="search"
                 className="me-2 "
                 placeholder="Search for countries"
@@ -68,7 +68,7 @@ const Favourites = () => {
           </Col>
         </Row>
         <div className="empty-favorites">{emptyFavoritesMessage}</div>
-        <Row xs={2} md={3} lg={3} className=" g-3">
+        <Row xs={2} md={3} lg={3} className=" g-4">
           {countriesList
             .filter((c) => {
               return c.name.official.toLowerCase().includes(search.toLowerCase());

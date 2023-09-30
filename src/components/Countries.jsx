@@ -45,8 +45,6 @@ const Countries = () => {
           </Form>
           <Form>
             <Form.Select
-              style={{ width: '10rem' }}
-              aria-label="Sort By"
               onChange={(e) => setSortBy(e.target.value)}
             >
               <option value="alphabetical">Alphabetical</option>

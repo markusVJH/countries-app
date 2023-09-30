@@ -30,8 +30,6 @@ const CountriesSingle = () => {
       });
   }, [country.capital]);
 
-  console.log('weather xd ->', weather)
-
   const toggleFlagModal = () => {
     setShowFlagModal(!showFlagModal);
   };
@@ -100,12 +98,12 @@ if (loading) {
               Total land area: <strong>{formattedArea} km²</strong>
             </p>
             <p>
-              Currencies: <strong>{country.currencies && Object.values(country.currencies)[0].name} | {country.currencies && Object.values(country.currencies)[0].symbol}</strong>
+              Currency: <strong>{country.currencies && Object.values(country.currencies)[0].name} | {country.currencies && Object.values(country.currencies)[0].symbol}</strong>
             </p>
         </Col>
-{/*         <Col>
+        <Col>
         <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.capital}`} />
-        </Col> */}
+        </Col>
       </Row>
       <Modal show={showFlagModal} onHide={toggleFlagModal}>
         <Modal.Header closeButton>
