@@ -40,6 +40,10 @@ body {
 .country-card {
   cursor: pointer;
 }
+.heart-icon {
+  position: absolute;
+  margin-top: 0.3rem;
+}
 
 /* favorites */
 

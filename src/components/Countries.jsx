@@ -13,8 +13,6 @@ const Countries = () => {
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
-
-
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('alphabetical');
 
@@ -29,6 +27,7 @@ const Countries = () => {
     sortBy
   );
 
+  
 
   return (
     <Container fluid className='full-height'>

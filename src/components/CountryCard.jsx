@@ -12,6 +12,16 @@ function CountryCard({ country }) {
   const formattedPopulation = population.toLocaleString();
   const formattedArea = area.toLocaleString();
 
+  const handleHeartClick = (e) => {
+    e.preventDefault();
+    
+    if (favouritesList.includes(country.name.common)) {
+      dispatchEvent(removeFavourite(country.name.common));
+    } else {
+      dispatchEvent(addFavourite(country.name.common));
+    }
+  };
+
   return (
       <Col className="mt-5 country-card">
         <LinkContainer
@@ -19,15 +29,17 @@ function CountryCard({ country }) {
           state={{ country: country }}
         >
           <Card className="h-100">
+            <div className='heart-icon'>
             {favouritesList.includes(country.name.common) ? (
               <i
               className='bi bi-heart-fill text-danger m-1 p-1'
-              onClick={() => dispatchEvent(removeFavourite(country.name.common))} />
+              onClick={handleHeartClick} />
             ) : (
               <i
               className='bi bi-heart text-danger m-1 p-1'
-              onClick={() => dispatchEvent(addFavourite(country.name.common))} />
+              onClick={handleHeartClick} />
             )}
+            </div>
             <Card.Body className="d-flex flex-column">
             <div className="text-center">
               <Card.Title >{country.name.common}</Card.Title>
