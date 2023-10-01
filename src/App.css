@@ -17,13 +17,12 @@ body {
 }
 /* single country */
 .full-height {
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 8rem);
 }
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 }
 .title h1 {
   font-size: 60px;
@@ -73,5 +72,12 @@ body {
 /* favorites */
 
 .empty-favorites {
+  text-align: center;
+}
+/* footer */
+footer {
+  height: 4rem;
+  background-color: #212529;
+  color: white;
   text-align: center;
 }

@@ -18,7 +18,6 @@ import Favourites from './components/Favourites';
 const App = () => {
   const [user] =useAuthState(auth)
   return (
-    <div className='container'>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -33,7 +32,6 @@ const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
-    </div>
   );
 };
 

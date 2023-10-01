@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
+import Footer from '../components/Footer';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
@@ -52,11 +53,14 @@ const Layout = () => {
           </Container>
         </Navbar>
       </Row>
-      <div style={{ paddingTop: '4rem' }}>
       <Row>
+      <div className='container'>
+      <div style={{ paddingTop: '4rem' }}>
         <Outlet />
-      </Row>
       </div>
+      </div>
+        <Footer />
+      </Row>
     </Container>
   );
 };
