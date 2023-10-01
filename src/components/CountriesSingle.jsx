@@ -12,6 +12,7 @@ const CountriesSingle = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showFlagModal, setShowFlagModal] = useState(false);
+  const [showCoatModal, setShowCoatModal] = useState(false);
 
   const country = location.state.country;
   const formattedPopulation = country.population.toLocaleString();
@@ -32,6 +33,9 @@ const CountriesSingle = () => {
 
   const toggleFlagModal = () => {
     setShowFlagModal(!showFlagModal);
+  };
+  const toggleCoatModal = () => {
+    setShowCoatModal(!showCoatModal);
   };
 
 if (loading) {
@@ -61,7 +65,13 @@ if (loading) {
               style={{ width: '7rem', marginRight: '1rem', cursor: 'pointer', border: '1px solid lightgray' }}
               onClick={toggleFlagModal}
             />
-        <h1 className='display-4'>{country.name.common}</h1>
+        <h2>{country.name.common}</h2>
+        <Image
+              src={country.flags && country.coatOfArms.svg}
+              alt={`${country.name.common} Coat of arms`}
+              style={{ width: '7rem', marginLeft: '1rem', cursor: 'pointer'}}
+              onClick={toggleCoatModal}
+            />
         </div>
       </div>
       <Row className="mt-5">
@@ -75,9 +85,21 @@ if (loading) {
             ></iframe>
         </Col>
         <Col>
-            <p>Capital city: <strong>{country.capital && Object.values(country.capital).join(', ')}</strong></p>
+            <p>
+              Official name: <strong>{country.name.official}</strong>
+            </p>
+            <p>
+              Region: <strong>{country.subregion || country.region}</strong>
+            </p>
+            <p>
+              Population: <strong>{formattedPopulation}</strong>
+            </p>
+            <p>
+              Total land area: <strong>{formattedArea} km²</strong>
+            </p>
+            <p>Capital city: <strong>{(country.capital && Object.values(country.capital).join(', ')) || 'None '}</strong></p>
                 {error ? (
-                  <p style={{marginLeft: '1rem'}}>Weather data not found for this country. Hopefully its nice!</p>
+                  <p style={{marginLeft: '1rem'}}>Weather: Cannot find weather data. Hopefully it's nice!</p>
                   ) : (
                     weather && (
                     <div>
@@ -89,30 +111,36 @@ if (loading) {
                   )
                 )}
             <p>
-              Official languages: <strong>{country.languages && Object.values(country.languages).join(', ')}</strong>
+              Official languages: <strong>{(country.languages && Object.values(country.languages).join(', ')) || 'None'}</strong>
             </p>
             <p>
-              Population: <strong>{formattedPopulation}</strong>
-            </p>
-            <p>
-              Total land area: <strong>{formattedArea} km²</strong>
-            </p>
-            <p>
-              Currency: <strong>{country.currencies && Object.values(country.currencies)[0].name} | {country.currencies && Object.values(country.currencies)[0].symbol}</strong>
+              Currency: <strong>{(country.currencies && Object.values(country.currencies)[0].name) || 'No currency'} {country.currencies && Object.values(country.currencies)[0].symbol}</strong>
             </p>
         </Col>
         <Col>
-        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.capital}`} />
+        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.common} nature`} />
         </Col>
       </Row>
       <Modal show={showFlagModal} onHide={toggleFlagModal}>
         <Modal.Header closeButton>
-          <Modal.Title>The flag of {country.name.common}</Modal.Title>
+          <Modal.Title>Flag of {country.name.common}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Image
             src={country.flags && country.flags.svg}
-            alt={`${country.name.common} Flag`}
+            alt={country.flags.alt}
+            style={{ width: '100%' }}
+          />
+        </Modal.Body>
+      </Modal>
+      <Modal show={showCoatModal} onHide={toggleCoatModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{country.name.common} coat of arms</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image
+            src={country.flags && country.coatOfArms.svg}
+            alt={country.flags.alt}
             style={{ width: '100%' }}
           />
         </Modal.Body>

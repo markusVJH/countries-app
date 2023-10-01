@@ -49,7 +49,7 @@ function CountryCard({ country }) {
               </div>
           <img
             src={flags && flags.svg}
-            alt={`${country.name.common} Flag`}
+            alt={country.flags.alt}
             
             style={{ width: '6rem', border: '1px solid lightgray'}}
           />
@@ -58,6 +58,10 @@ function CountryCard({ country }) {
                 variant="flush"
                 className="flex-grow-1 justify-content-end"
               >
+                <ListGroup.Item title="Region">
+                  <i className="bi bi-compass me-2"></i>
+                  {country.subregion || country.region}
+                </ListGroup.Item>
                 <ListGroup.Item title="Population">
                   <i className="bi bi-people me-2"></i>
                   {formattedPopulation}
@@ -65,14 +69,6 @@ function CountryCard({ country }) {
                 <ListGroup.Item title="Land area">
                   <i className="bi bi-map me-2"></i>
                   {formattedArea} km²
-                </ListGroup.Item>
-                <ListGroup.Item title="Capital city">
-                  <i className="bi bi-flag-fill me-2"></i>
-                  {country.capital && Object.values(country.capital).join(', ')}
-                </ListGroup.Item>
-                <ListGroup.Item className='scroll' title="Official languages">
-                  <i className="bi bi-translate me-2"></i>
-                  {languages && Object.values(languages).join(', ')}
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>
