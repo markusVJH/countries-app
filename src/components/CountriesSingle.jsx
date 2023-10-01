@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Spinner, Image, Button, Modal } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { addFavourite, removeFavourite } from '../features/countries/favouritesSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import '../App.css'
 
 const CountriesSingle = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const favouritesList = useSelector((state) => state.favourites.favourites);
+  const dispatchEvent = useDispatch();
 
   const [weather, setWeather] = useState('');
   const [error, setError] = useState(false);
@@ -17,6 +21,16 @@ const CountriesSingle = () => {
   const country = location.state.country;
   const formattedPopulation = country.population.toLocaleString();
   const formattedArea = country.area.toLocaleString();
+
+  const handleHeartClick = (e) => {
+    e.preventDefault();
+    
+    if (favouritesList.includes(country.name.common)) {
+      dispatchEvent(removeFavourite(country.name.common));
+    } else {
+      dispatchEvent(addFavourite(country.name.common));
+    }
+  };
 
   useEffect(()=>{
     axios
@@ -53,9 +67,18 @@ if (loading) {
   );
 }
 
-
   return (
     <Container className='full-height'>
+          {favouritesList.includes(country.name.common) ? (
+            <i
+            style={{cursor: 'pointer'}}
+            className='bi bi-star-fill text-warning m-1 p-1 star-single'
+            onClick={handleHeartClick} />
+          ) : (
+            <i
+            className='bi bi-star text-warning m-1 p-1 star-single'
+            onClick={handleHeartClick} />
+          )}
       <div className='title'>
       <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
         <div className="d-flex align-items-center mb-3">
@@ -64,14 +87,14 @@ if (loading) {
               alt={`${country.name.common} Flag`}
               style={{ width: '7rem', marginRight: '1rem', cursor: 'pointer', border: '1px solid lightgray' }}
               onClick={toggleFlagModal}
-            />
+              />
         <h2>{country.name.common}</h2>
         <Image
               src={country.flags && country.coatOfArms.svg}
               alt={`${country.name.common} Coat of arms`}
               style={{ width: '7rem', marginLeft: '1rem', cursor: 'pointer'}}
               onClick={toggleCoatModal}
-            />
+              />
         </div>
       </div>
       <Row xs={1} md={3} lg={3} className="g-4">
@@ -102,13 +125,13 @@ if (loading) {
                   <p style={{marginLeft: '1rem'}}>Weather: Cannot find weather data. Hopefully it's nice!</p>
                   ) : (
                     weather && (
-                    <div>
+                      <div>
                       <p><small style={{marginLeft: '1rem', paddingBottom:'2rem'}}>
                         It is <strong>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and {weather.weather[0].description}
                       </small></p>  
                     </div>
                   )
-                )}
+                  )}
             <p>
               Official languages: <strong>{(country.languages && Object.values(country.languages).join(', ')) || 'None'}</strong>
             </p>

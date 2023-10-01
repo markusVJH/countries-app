@@ -63,6 +63,12 @@ body {
   left: 0;
   font-size: 1.5rem;
 }
+.star-single {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2.5rem;
+}
 .hover-shadow {
   transition: 0.3s;
 }
