@@ -28,9 +28,8 @@ const BackToTopButton = () =>{
   return (
     <Button
       variant='dark'
-      className='backToTop'
-      onClick={scrollToTop} 
-      style={{display: visible ? 'inline' : 'none'}}>
+      className={`backToTop ${visible ? 'visible' : ''}`}
+      onClick={scrollToTop}>
       <i className="bi bi-arrow-up"></i>
     </Button>
   );
