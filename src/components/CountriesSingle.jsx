@@ -74,7 +74,7 @@ if (loading) {
             />
         </div>
       </div>
-      <Row className="mt-5">
+      <Row xs={1} md={3} lg={3} className="g-4">
         <Col>
           <iframe
             title="Google Maps"
@@ -105,7 +105,6 @@ if (loading) {
                     <div>
                       <p><small style={{marginLeft: '1rem', paddingBottom:'2rem'}}>
                         It is <strong>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and {weather.weather[0].description}
-{/*                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} style={{position: 'absolute'}} /> */}
                       </small></p>  
                     </div>
                   )
@@ -118,7 +117,7 @@ if (loading) {
             </p>
         </Col>
         <Col>
-        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.common} nature`} />
+        <Image thumbnail src={`https://source.unsplash.com/1600x900/?${country.name.common} nature`} style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
         </Col>
       </Row>
       <Modal show={showFlagModal} onHide={toggleFlagModal}>

@@ -55,7 +55,7 @@ const Countries = () => {
         </Col>
       </Row>
       <BackToTopButton />
-      <Row xs={2} md={3} lg={3} className=" g-4">
+      <Row xs={1} md={3} lg={3} className=" g-4">
         {filteredAndSortedCountries.map((country) => (
           <CountryCard country={country} key={country.name.common} />
         ))}
