@@ -8,6 +8,7 @@ import CountryCard from './CountryCard';
 import { initializeCountries } from '../features/countries/countriesSlice';
 import BackToTopButton from './BackToTopButton';
 import filterAndSortCountries from '../features/countryFilter';
+import { Button } from 'react-bootstrap';
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Countries = () => {
   const loading = useSelector((state) => state.countries.isLoading);
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('alphabetical');
+  const [reverseOrder, setReverseOrder] = useState('asc');
 
   useEffect(() => {
     dispatch(initializeCountries())
@@ -24,8 +26,13 @@ const Countries = () => {
   const filteredAndSortedCountries = filterAndSortCountries(
     countriesList,
     search,
-    sortBy
+    sortBy,
+    reverseOrder
   );
+
+  const toggleReverseOrder = () => {
+    setReverseOrder(reverseOrder === 'asc' ? 'desc' : 'asc');
+  };
 
   
 
@@ -52,6 +59,7 @@ const Countries = () => {
               <option value="area">Area</option>
             </Form.Select>
           </Form>
+          <Button style={{ marginLeft:'0.5rem' }} variant='dark' onClick={toggleReverseOrder}><i className="bi bi-arrow-down-up" /></Button>
         </Col>
       </Row>
       <BackToTopButton />

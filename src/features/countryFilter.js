@@ -1,14 +1,18 @@
-const filterAndSortCountries = (countries, search, sortBy) => {
+const filterAndSortCountries = (countries, search, sortBy, reverseOrder) => {
   const sortCountries = (a, b) => {
+    let result;
     switch (sortBy) {
       case 'population':
-        return b.population - a.population;
+        result = b.population - a.population;
+        break;
       case 'area':
-        return b.area - a.area;
+        result = b.area - a.area;
+        break;
       case 'alphabetical':
       default:
-        return a.name.common.localeCompare(b.name.common);
+        result = a.name.common.localeCompare(b.name.common);
     }
+    return reverseOrder === 'asc' ? result : -result;
   };
 
   return countries

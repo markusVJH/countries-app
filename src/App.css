@@ -23,6 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 3rem;
 }
 .title h1 {
   font-size: 60px;
