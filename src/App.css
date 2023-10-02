@@ -21,6 +21,7 @@ body {
 }
 .title {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding-bottom: 3rem;
@@ -32,6 +33,26 @@ body {
   position: absolute;
   left: 2rem;
 }
+.star-single {
+  position: absolute;
+  right: 2rem;
+  font-size: 2.5rem;
+}
+@media (max-width: 576px) {
+  .flagNameCoat {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .flagNameCoat h2 {
+    order: -1;
+  }
+  .flagNameCoat img {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
 /* back to top button */
 
 .backToTop {
@@ -63,12 +84,6 @@ body {
   top: 0;
   left: 0;
   font-size: 1.5rem;
-}
-.star-single {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 2.5rem;
 }
 .hover-shadow {
   transition: 0.3s;

@@ -69,19 +69,9 @@ if (loading) {
 
   return (
     <Container className='full-height'>
-          {favouritesList.includes(country.name.common) ? (
-            <i
-            style={{cursor: 'pointer'}}
-            className='bi bi-star-fill text-warning m-1 p-1 star-single'
-            onClick={handleHeartClick} />
-          ) : (
-            <i
-            className='bi bi-star text-warning m-1 p-1 star-single'
-            onClick={handleHeartClick} />
-          )}
       <div className='title'>
       <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
-        <div className="d-flex align-items-center mb-3">
+        <div className="d-flex align-items-center mb-3 flagNameCoat">
             <Image
               src={country.flags && country.flags.svg}
               alt={`${country.name.common} Flag`}
@@ -96,6 +86,16 @@ if (loading) {
               onClick={toggleCoatModal}
               />
         </div>
+              {favouritesList.includes(country.name.common) ? (
+                <i
+                style={{cursor: 'pointer'}}
+                className='bi bi-star-fill text-warning m-1 p-1 star-single'
+                onClick={handleHeartClick} />
+              ) : (
+                <i
+                className='bi bi-star text-warning m-1 p-1 star-single'
+                onClick={handleHeartClick} />
+              )}
       </div>
       <Row xs={1} md={3} lg={3} className="g-4">
         <Col>

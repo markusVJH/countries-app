@@ -54,7 +54,7 @@ const Favourites = () => {
                 style={{ width: '13rem' }}
                 type="search"
                 className="me-2 "
-                placeholder="Search for countries"
+                placeholder="Search for favourites"
                 aria-label="Search"
                 onChange={(e) => setSearch(e.target.value)}
               />
