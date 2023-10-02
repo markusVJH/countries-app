@@ -17,14 +17,18 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar variant="light" className='fixed-top' style={{ borderBottom: '1px solid lightgray', background:'white'} }>
+        <Navbar 
+        variant="light" 
+        className='fixed-top' 
+        style={{ borderBottom: '1px solid lightgray', 
+        background:'white'} }
+        expand="lg"
+        >
           <Container>
+            <Navbar.Brand href="/">Countries App</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" style={{ background: 'white' }}>
+            <Navbar.Collapse id="basic-navbar-nav" style={{ background: 'white', justifyContent:'space-between' }}>
             <Nav>
-                <LinkContainer to="/">
-                  <Nav.Link>Home</Nav.Link>
-                </LinkContainer>
                 <LinkContainer to="/countries">
                   <Nav.Link>Countries</Nav.Link>
                 </LinkContainer>
@@ -32,7 +36,6 @@ const Layout = () => {
                   <Nav.Link>Favourites</Nav.Link>
                 </LinkContainer>
             </Nav>
-            </Navbar.Collapse>
             <Nav className="ml-auto">
               {user ? (
                 <>
@@ -50,6 +53,7 @@ const Layout = () => {
                 </>
               )}
             </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       </Row>

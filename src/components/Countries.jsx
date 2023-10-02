@@ -42,7 +42,7 @@ const Countries = () => {
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
             <Form.Control
-              style={{ width: '20rem' }}
+              style={{ width: '13rem' }}
               type="search"
               className="me-2 "
               placeholder="Search for countries"
@@ -63,7 +63,7 @@ const Countries = () => {
         </Col>
       </Row>
       <BackToTopButton />
-      <Row xs={1} md={3} lg={3} className=" g-4">
+      <Row xs={1} md={3} lg={3} className="g-4 pb-4">
         {filteredAndSortedCountries.map((country) => (
           <CountryCard country={country} key={country.name.common} />
         ))}

@@ -51,7 +51,7 @@ const Favourites = () => {
           <Col className="mt-5 d-flex justify-content-center">
             <Form>
               <Form.Control
-                style={{ width: '20rem' }}
+                style={{ width: '13rem' }}
                 type="search"
                 className="me-2 "
                 placeholder="Search for countries"
@@ -68,7 +68,7 @@ const Favourites = () => {
           </Col>
         </Row>
         <div className="empty-favorites">{emptyFavoritesMessage}</div>
-        <Row xs={2} md={3} lg={3} className=" g-4">
+        <Row xs={2} md={3} lg={3} className="g-4 pb-4">
           {countriesList
             .filter((c) => {
               return c.name.official.toLowerCase().includes(search.toLowerCase());
