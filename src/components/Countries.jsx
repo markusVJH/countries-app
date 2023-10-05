@@ -65,7 +65,10 @@ const Countries = () => {
       <BackToTopButton />
       <Row xs={1} sm={2} md={2} lg={3} className="g-4 pb-4">
         {filteredAndSortedCountries.map((country) => (
-              <CountryCard country={country} />
+              <CountryCard 
+              country={country}
+              key={country.name.common}
+              />
         ))}
       </Row>
     </Container>

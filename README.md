@@ -13,6 +13,6 @@ Built with:
 
 ## Acknowledgement
 
-Initial idea and guidance [@martin-holland](https://https://github.com/martin-holland)
+Initial idea and guidance [@martin-holland](https://github.com/martin-holland)
 
 Countries API [REST Countries](https://restcountries.com/)
