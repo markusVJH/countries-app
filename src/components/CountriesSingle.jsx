@@ -93,6 +93,7 @@ if (loading) {
                 onClick={handleHeartClick} />
               ) : (
                 <i
+                style={{cursor: 'pointer'}}
                 className='bi bi-star text-warning m-1 p-1 star-single'
                 onClick={handleHeartClick} />
               )}

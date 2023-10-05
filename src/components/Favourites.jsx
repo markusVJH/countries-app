@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../features/countries/countriesSlice";
-import { clearFavourites } from "../features/countries/favouritesSlice";
+import { clearFavourites, getFavouritesFromSource } from "../features/countries/favouritesSlice";
 import CountryCard from "./CountryCard";
 import '../App.css'
 
@@ -10,7 +10,8 @@ import '../App.css'
 const Favourites = () => {
     const dispatch = useDispatch()
     let countriesList = useSelector((state) => state.countries.countries)
-    const loading = useSelector((state) => state.countries.loading)
+    const countriesLoading = useSelector((state) => state.countries.loading)
+    const favouritesLoading = useSelector((state) => state.favourites.isLoading) 
     const [search, setSearch] = useState("")
     const favouritesList = useSelector((state) => state.favourites.favourites)  
 
@@ -29,10 +30,11 @@ const Favourites = () => {
 
     useEffect(() => {
         dispatch(initializeCountries())
+        dispatch(getFavouritesFromSource())
     }, [dispatch])
 
 
-    if (loading) {
+    if (countriesLoading || favouritesLoading) {
         return (
             <Col className="text-center m-5">
         <Spinner
@@ -68,7 +70,7 @@ const Favourites = () => {
           </Col>
         </Row>
         <div className="empty-favorites">{emptyFavoritesMessage}</div>
-        <Row xs={2} md={3} lg={3} className="g-4 pb-4">
+        <Row xs={1} sm={2} md={2} lg={3} className="g-4 pb-4">
           {countriesList
             .filter((c) => {
               return c.name.official.toLowerCase().includes(search.toLowerCase());

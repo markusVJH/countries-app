@@ -8,7 +8,7 @@ import '../App.css'
 function CountryCard({ country }) {
   const favouritesList = useSelector((state) => state.favourites.favourites);
   const dispatchEvent = useDispatch();
-  const { languages, population, flags, area } = country;
+  const { population, flags, area } = country;
 
   const formattedPopulation = population.toLocaleString();
   const formattedArea = area.toLocaleString();
