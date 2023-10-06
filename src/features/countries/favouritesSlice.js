@@ -36,7 +36,6 @@ export const favouritesSlice = createSlice({
     }
     },
     clearFavourites(state, action) {
-    localStorage.removeItem('favourites')
     state.favourites = []
     const user = auth.currentUser
     if (user) {

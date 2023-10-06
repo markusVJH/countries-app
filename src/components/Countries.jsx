@@ -13,7 +13,6 @@ import { Button } from 'react-bootstrap';
 const Countries = () => {
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
-  const loading = useSelector((state) => state.countries.isLoading);
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('alphabetical');
   const [reverseOrder, setReverseOrder] = useState('asc');

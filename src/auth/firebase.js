@@ -59,26 +59,21 @@ const logout = () => {
 export const addFavouriteToFirebase = async (uid, name) => {
   try {
   await addDoc(collection(db, `users/${uid}/favourites`), { name });
-  console.log("Favourite added to Firebase database");
   } catch (err) {
-  console.error("Error adding favourite to Firebase database: ", err);
   }
   };
 
 export const removeFavouriteFromFirebase = async (uid, name) => {
   try {
     if (!name) {
-    console.error("Error removing favourite from Firebase database: name parameter is undefined");
     return;
     }
     const q = query(collection(db, `users/${uid}/favourites`), where("name", "==", name));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
     deleteDoc(doc.ref);
-    console.log("Favourite removed from Firebase database");
     });
     } catch (err) {
-      console.error("Error removing favourite from Firebase database: ", err);
     }
   };
 
@@ -88,11 +83,9 @@ export const clearFavouritesFromFirebase = async (uid) => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
     deleteDoc(doc.ref);
-    console.log("Favourites removed from Firebase database");
     });
     } catch (err) {
-    console.error("Error removing favourites from Firebase database: ", err);
     }
     };
-    
+
 export { auth, db, loginWithEmailAndPassword, registerWithEmailAndPassword, logout};
