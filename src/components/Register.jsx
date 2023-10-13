@@ -23,7 +23,7 @@ const Register = () => {
   },[user, loading, navigate])
 
   return (
-    <div className="container full-height pt-5">
+    <div className="container full-height pt-5 loggedout">
     <div className="row justify-content-center">
       <div className="col-md-4 ">
         <div className="card">

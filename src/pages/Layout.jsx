@@ -59,7 +59,7 @@ const Layout = () => {
       </Row>
       <Row>
       <div className='container'>
-      <div style={{ paddingTop: '4rem' }}>
+      <div style={{ paddingTop: '3.5rem' }}>
         <Outlet />
       </div>
       </div>
