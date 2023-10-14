@@ -52,20 +52,15 @@ const CountriesSingle = () => {
     setShowCoatModal(!showCoatModal);
   };
 
-if (loading) {
-  return (
-    <Container>
-      <Spinner
-        animation="grow"
-        role="status"
-        className="center"
-        variant="warning"
-        >
-        <span className='visually-hidden'>Loading...</span>
-      </Spinner>
-    </Container>
-  );
-}
+  if (loading) {
+    return (
+      <Container fluid className="full-height d-flex justify-content-center align-items-center">
+        <Spinner animation="border" role="status" variant="dark">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </Container>
+    );
+  }
 
   return (
     <Container className='full-height'>

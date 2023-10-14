@@ -35,18 +35,13 @@ const Favourites = () => {
 
 
     if (countriesLoading || favouritesLoading) {
-        return (
-            <Col className="text-center m-5">
-        <Spinner
-          animation="border"
-          role="status"
-          className="center"
-          variant="info"
-        >
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </Col>
-        )
+      return (
+        <Container fluid className="full-height d-flex justify-content-center align-items-center">
+          <Spinner animation="border" role="status" variant="dark">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Container>
+      );
     }
     return (<Container fluid className="full-height">
         <Row>
