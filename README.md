@@ -12,7 +12,7 @@ Users can favourite countries, and see them separately on a favourites page. The
 
 ## Live page
 
-[markusvjh.github.io/countries-app](https://markusvjh.github.io/countries-app)
+[markusvjh-countries-app.netlify.app](https://markusvjh-countries-app.netlify.app/)
 
 If you don't want to make a new account, you can log in as 'demo@demo.com' with the password 'password'.
 
@@ -52,3 +52,11 @@ Countries API [REST Countries](https://restcountries.com/)
 [OpenWeather API](https://openweathermap.org/api) for weather data for capital cities
 
 Background image by Clker-Free-Vector-Images at [ Pixabay](https://pixabay.com/vectors/globe-earth-continents-planet-296471/)
+
+## Video
+
+
+
+https://github.com/markusVJH/countries-app/assets/121946942/f74719de-4816-4a7b-8615-56635565ab25
+
+
