@@ -6,6 +6,8 @@ This is a final project for a React Advanced course at Business College Helsinki
 
 This app displays all countries and territories from the [REST Countries API](https://restcountries.com/), which can be filtered and sorted. The app uses Firestore Authentication to let users register, log in and log out.
 
+Each country has a detailed info page, with embedded Google Maps and weather data.
+
 Users can favourite countries, and see them separately on a favourites page. The favourites are saved to Firestore Database along with the basic user data.
 
 ## Live page
