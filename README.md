@@ -12,6 +12,8 @@ Users can favourite countries, and see them separately on a favourites page. The
 
 ## Live page
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f864a86-0140-4fe6-adf1-ce4258262197/deploy-status)](https://app.netlify.com/sites/markusvjh-countries-app/deploys)
+
 [markusvjh-countries-app.netlify.app](https://markusvjh-countries-app.netlify.app/)
 
 If you don't want to make a new account, you can log in as 'demo@demo.com' with the password 'password'.
