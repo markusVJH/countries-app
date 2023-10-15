@@ -134,5 +134,21 @@ footer {
   height: 4rem;
   background-color: #212529;
   color: white;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 14px;
+}
+footer p {
+  margin: 0;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+footer a:hover {
+  text-decoration: underline;
+  color: white;
 }

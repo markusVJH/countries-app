@@ -12,9 +12,9 @@ Users can favourite countries, and see them separately on a favourites page. The
 
 ## Live page
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4f864a86-0140-4fe6-adf1-ce4258262197/deploy-status)](https://app.netlify.com/sites/markusvjh-countries-app/deploys)
-
 [markusvjh-countries-app.netlify.app](https://markusvjh-countries-app.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f864a86-0140-4fe6-adf1-ce4258262197/deploy-status)](https://app.netlify.com/sites/markusvjh-countries-app/deploys)
 
 If you don't want to make a new account, you can log in as 'demo@demo.com' with the password 'password'.
 
@@ -43,7 +43,7 @@ If you want to set up the project on your local machine instead, you need to:
 
 ## Acknowledgement
 
-Initial idea and guidance [@martin-holland](https://github.com/martin-holland)
+Guidance by our teacher [@martin-holland](https://github.com/martin-holland)
 
 Countries API [REST Countries](https://restcountries.com/)
 
@@ -57,8 +57,4 @@ Background image by Clker-Free-Vector-Images at [ Pixabay](https://pixabay.com/v
 
 ## Video
 
-
-
 https://github.com/markusVJH/countries-app/assets/121946942/f74719de-4816-4a7b-8615-56635565ab25
-
-
