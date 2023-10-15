@@ -68,7 +68,7 @@ const CountriesSingle = () => {
       <Button variant="dark" onClick={() => navigate('/countries')}><i className="bi bi-arrow-left"></i></Button>
         <div className="d-flex align-items-center mb-3 flagNameCoat">
             <Image
-              src={country.flags && country.flags.svg}
+              src={country.flags?.svg}
               alt={`${country.name.common} Flag`}
               style={{ width: '7rem', marginRight: '1rem', cursor: 'pointer', border: '1px solid lightgray' }}
               onClick={toggleFlagModal}
@@ -145,7 +145,7 @@ const CountriesSingle = () => {
         </Modal.Header>
         <Modal.Body>
           <Image
-            src={country.flags && country.flags.svg}
+            src={country.flags?.svg}
             alt={country.flags.alt}
             style={{ width: '100%' }}
           />

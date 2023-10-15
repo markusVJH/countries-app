@@ -48,9 +48,8 @@ function CountryCard({ country }) {
               </Card.Subtitle>
               </div>
           <img
-            src={flags && flags.svg}
+            src={flags?.svg}
             alt={country.flags.alt}
-            
             style={{ width: '6rem', border: '1px solid lightgray'}}
           />
             </div>
