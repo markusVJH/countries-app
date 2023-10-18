@@ -55,12 +55,24 @@ Countries API [REST Countries](https://restcountries.com/)
 
 Background image by Clker-Free-Vector-Images at [ Pixabay](https://pixabay.com/vectors/globe-earth-continents-planet-296471/)
 
-## Video
+## Desktop Video
 
-https://github.com/markusVJH/countries-app/assets/121946942/f74719de-4816-4a7b-8615-56635565ab25
+
+
+https://github.com/markusVJH/countries-app/assets/121946942/b799fbbc-904c-4931-b8c9-8ab5b155df1a
+
+
+
+## Mobile Video
+
+
+
+https://github.com/markusVJH/countries-app/assets/121946942/2a78de14-5b17-4b45-a11b-45ecbe6a3ab7
+
 
 ##
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=markusVJH_countries-app)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=markusVJH_countries-app&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=markusVJH_countries-app)
+
