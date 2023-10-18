@@ -19,7 +19,7 @@ const Login = () => {
   return(
     <div className="container full-height pt-5 loggedout">
     <div className="row justify-content-center">
-      <div className="col-md-4">
+      <div className="col-md-4 form">
         <div className="card">
           <div className="card-body">
             <div>

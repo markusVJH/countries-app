@@ -60,6 +60,10 @@ body {
     font-size: 20px;
   }
 }
+/* login and register */
+.form {
+  padding-bottom: 2rem;
+}
 /* single country */
 .title {
   display: flex;
