@@ -28,7 +28,7 @@ const Layout = () => {
           <Container>
             <Navbar.Brand eventkey="1" href="/">Countries App</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" style={{ background: 'white', justifyContent:'space-between' }}>
+            <Navbar.Collapse id="basic-navbar-nav" style={{justifyContent:'space-between' }}>
             <Nav>
                 <LinkContainer to="/countries">
                   <Nav.Link eventkey="2">Countries</Nav.Link>

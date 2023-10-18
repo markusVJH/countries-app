@@ -39,9 +39,11 @@ body {
 }
 .front h1 {
   font-size: 60px;
+  font-weight: 300;
 }
 .front h3 {
   font-size: 30px;
+  font-weight: 300;
 }
 .front h1,
 .front h3 {
@@ -49,6 +51,14 @@ body {
 }
 .loggedout {
   background: url("/src/assets/globe.png") center/cover no-repeat;
+}
+@media (max-width: 676px) {
+  .front h1 {
+    font-size: 40px;
+  }
+  .front h3 {
+    font-size: 20px;
+  }
 }
 /* single country */
 .title {
