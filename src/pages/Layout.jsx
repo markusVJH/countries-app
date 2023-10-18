@@ -17,7 +17,8 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar 
+        <Navbar
+        collapseOnSelect
         variant="light" 
         className='fixed-top' 
         style={{ borderBottom: '1px solid lightgray', 
@@ -25,15 +26,15 @@ const Layout = () => {
         expand="lg"
         >
           <Container>
-            <Navbar.Brand href="/">Countries App</Navbar.Brand>
+            <Navbar.Brand eventkey="1" href="/">Countries App</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" style={{ background: 'white', justifyContent:'space-between' }}>
             <Nav>
                 <LinkContainer to="/countries">
-                  <Nav.Link>Countries</Nav.Link>
+                  <Nav.Link eventkey="2">Countries</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/favourites">
-                  <Nav.Link>Favourites</Nav.Link>
+                  <Nav.Link eventkey="3">Favourites</Nav.Link>
                 </LinkContainer>
             </Nav>
             <Nav className="ml-auto">
@@ -45,10 +46,10 @@ const Layout = () => {
               ) : (
                 <>
                   <LinkContainer to="/login">
-                    <Nav.Link>Login</Nav.Link>
+                    <Nav.Link eventkey="4">Login</Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/register">
-                    <Nav.Link>Register</Nav.Link>
+                    <Nav.Link eventkey="5">Register</Nav.Link>
                   </LinkContainer>
                 </>
               )}

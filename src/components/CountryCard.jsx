@@ -13,7 +13,7 @@ function CountryCard({ country }) {
   const formattedPopulation = population.toLocaleString();
   const formattedArea = area.toLocaleString();
 
-  const handleHeartClick = (e) => {
+  const handleFavClick = (e) => {
     e.preventDefault();
     
     if (favouritesList.includes(country.name.common)) {
@@ -33,11 +33,11 @@ function CountryCard({ country }) {
             {favouritesList.includes(country.name.common) ? (
               <i
               className='bi bi-star-fill text-warning m-1 p-1 star'
-              onClick={handleHeartClick} />
+              onClick={handleFavClick} />
             ) : (
               <i
               className='bi bi-star text-warning m-1 p-1 star'
-              onClick={handleHeartClick} />
+              onClick={handleFavClick} />
             )}
             <Card.Body className="d-flex flex-column">
             <div className="text-center">

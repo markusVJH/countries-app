@@ -93,7 +93,7 @@ const CountriesSingle = () => {
                 onClick={handleHeartClick} />
               )}
       </div>
-      <Row xs={1} md={3} lg={3} className="g-4">
+      <Row xs={1} md={3} lg={3} className="g-4 pb-3">
         <Col>
           <iframe
             title="Google Maps"
@@ -101,6 +101,7 @@ const CountriesSingle = () => {
             width="100%"
             height="100%"
             allowFullScreen
+            className="iframe"
             ></iframe>
         </Col>
         <Col>
